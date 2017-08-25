@@ -121,7 +121,23 @@ namespace CPE200Lab1
                 case "÷":
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
+                    
                     break;
+                    if (lblDisplay.Text is "Error")
+                    {
+                        return;
+                    }
+                    string secondOperand = lblDisplay.Text;
+                    string result = calculate(operate, firstOperand, secondOperand);
+                    if (result is "E" || result.Length > 8)
+                    {
+                        lblDisplay.Text = "Error";
+                    }
+                    else
+                    {
+                        lblDisplay.Text = result;
+                    }
+                    isAfterEqual = true;
                 case "%":
                     // your code here
                     break;
@@ -226,6 +242,10 @@ namespace CPE200Lab1
                     lblDisplay.Text = "0";
                 }
             }
+        }
+        private void CheckDisplay()
+        {
+
         }
     }
 }
