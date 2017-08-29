@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CPE200Lab1
 {
     public partial class MainForm : Form
@@ -61,6 +62,7 @@ namespace CPE200Lab1
                 lblDisplay.Text = "";
             }
             lblDisplay.Text += digit;
+            
             isAfterOperater = false;
         }
         
@@ -82,8 +84,7 @@ namespace CPE200Lab1
                 case "-":
                 case "X":
                 case "÷":
-                case "1/X":
-                case "SQRT":
+                
                     if(firstOperand != null)
                     {
                         secondOperand = lblDisplay.Text;
@@ -97,20 +98,28 @@ namespace CPE200Lab1
                             lblDisplay.Text = result;
                         }
                         isAfterEqual = true;
-                        isAfterOperater = false;
+                        isAfterOperater = true;
                     }
                     else
                     {
                         firstOperand = lblDisplay.Text;
+                        isAfterOperater = true;
                       
 
                     }
 
                     break;
-                    
+                case "1/X":
+                    firstOperand = lblDisplay.Text;
+                    result = engine.Calculate(operate, firstOperand, null);
+
+                    break;
+                case "SQRT":
+                    break;
                 case "%":
-                   
-                   
+                    /*secondOperand = lblDisplay.Text;
+                    result = engine.Calculate(operate, firstOperand, secondOperand);
+                    lblDisplay.Text = result;*/
                     break;
 
                     // your code here
