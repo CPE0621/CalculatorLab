@@ -63,7 +63,7 @@ namespace CPE200Lab1
             lblDisplay.Text += digit;
             isAfterOperater = false;
         }
-
+        
         private void btnOperator_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -75,16 +75,19 @@ namespace CPE200Lab1
                 return;
             }
             operate = ((Button)sender).Text;
+            string secondOperand, result;
             switch (operate)
             {
                 case "+":
                 case "-":
                 case "X":
                 case "÷":
+                case "1/X":
+                case "SQRT":
                     if(firstOperand != null)
                     {
-                        string secondOperand = lblDisplay.Text;
-                        string result = engine.Calculate(operate, firstOperand, secondOperand);
+                        secondOperand = lblDisplay.Text;
+                       result = engine.Calculate(operate, firstOperand, secondOperand);
                         if (result is "E" || result.Length > 8)
                         {
                             lblDisplay.Text = "Error";
@@ -94,23 +97,30 @@ namespace CPE200Lab1
                             lblDisplay.Text = result;
                         }
                         isAfterEqual = true;
+                        isAfterOperater = false;
                     }
                     else
                     {
                         firstOperand = lblDisplay.Text;
-                        isAfterOperater = true;
+                      
 
                     }
 
                     break;
                     
                 case "%":
-                    // your code here
+                   
+                   
                     break;
+
+                    // your code here
+                   
             }
             isAllowBack = false;
         }
-
+        /*secondOperand = lblDisplay.Text;
+                   result = engine.Calculate(operate, firstOperand, secondOperand);
+                   lblDisplay.Text = result;*/
         private void btnEqual_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -209,9 +219,7 @@ namespace CPE200Lab1
                 }
             }
         }
-        private void CheckDisplay()
-        {
 
-        }
+        
     }
 }

@@ -49,6 +49,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblDisplay = new System.Windows.Forms.Label();
+            this.btn1Dividex = new System.Windows.Forms.Button();
+            this.btnSqrt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn7
@@ -284,11 +286,32 @@
             this.lblDisplay.Text = "0";
             this.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btn1Dividex
+            // 
+            this.btn1Dividex.Location = new System.Drawing.Point(388, 148);
+            this.btn1Dividex.Name = "btn1Dividex";
+            this.btn1Dividex.Size = new System.Drawing.Size(75, 64);
+            this.btn1Dividex.TabIndex = 21;
+            this.btn1Dividex.Text = "1/X";
+            this.btn1Dividex.UseVisualStyleBackColor = true;
+          
+            // 
+            // btnSqrt
+            // 
+            this.btnSqrt.Location = new System.Drawing.Point(388, 218);
+            this.btnSqrt.Name = "btnSqrt";
+            this.btnSqrt.Size = new System.Drawing.Size(75, 64);
+            this.btnSqrt.TabIndex = 22;
+            this.btnSqrt.Text = "SQRT";
+            this.btnSqrt.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 508);
+            this.ClientSize = new System.Drawing.Size(482, 512);
+            this.Controls.Add(this.btnSqrt);
+            this.Controls.Add(this.btn1Dividex);
             this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
@@ -340,6 +363,8 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblDisplay;
+        private System.Windows.Forms.Button btn1Dividex;
+        private System.Windows.Forms.Button btnSqrt;
     }
 }
 
