@@ -18,7 +18,7 @@ namespace CPE200Lab1
         private bool isAfterOperater;
         private bool isAfterEqual;
         private string firstOperand;
-        private string operate;
+        private string operate, lastOperate;
         private CalculatorEngine engine;
 
         private void resetAll()
@@ -87,8 +87,10 @@ namespace CPE200Lab1
                 
                     if(firstOperand != null)
                     {
+                        Console.WriteLine(firstOperand);
                         secondOperand = lblDisplay.Text;
-                       result = engine.Calculate(operate, firstOperand, secondOperand);
+                        Console.WriteLine(secondOperand);
+                        result = engine.Calculate(lastOperate,firstOperand, secondOperand);
                         if (result is "E" || result.Length > 8)
                         {
                             lblDisplay.Text = "Error";
@@ -97,35 +99,44 @@ namespace CPE200Lab1
                         {
                             lblDisplay.Text = result;
                         }
+                        lastOperate = operate;
+                        firstOperand = lblDisplay.Text;
                         isAfterEqual = true;
                         isAfterOperater = true;
                     }
                     else
                     {
+                        lastOperate = operate;
                         firstOperand = lblDisplay.Text;
                         isAfterOperater = true;
-                      
-
                     }
 
                     break;
                 case "1/X":
+
                     firstOperand = lblDisplay.Text;
-                    result = engine.Calculate(operate, firstOperand, null);
+                    result = engine.Calculate(operate, firstOperand, "0");
+                    lblDisplay.Text = result;
+                    break;
+
 
                     break;
                 case "SQRT":
+                    firstOperand = lblDisplay.Text;
+                    result = engine.Calculate(operate, firstOperand, "0");
+                    lblDisplay.Text = result;
                     break;
                 case "%":
-                    /*secondOperand = lblDisplay.Text;
+                    secondOperand = lblDisplay.Text;
                     result = engine.Calculate(operate, firstOperand, secondOperand);
-                    lblDisplay.Text = result;*/
+                    lblDisplay.Text = result;
                     break;
 
                     // your code here
                    
             }
             isAllowBack = false;
+            
         }
         /*secondOperand = lblDisplay.Text;
                    result = engine.Calculate(operate, firstOperand, secondOperand);
@@ -199,6 +210,11 @@ namespace CPE200Lab1
             resetAll();
         }
 
+        private void btnMemory_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -228,7 +244,5 @@ namespace CPE200Lab1
                 }
             }
         }
-
-        
     }
 }

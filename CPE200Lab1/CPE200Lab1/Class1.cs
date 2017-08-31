@@ -10,6 +10,7 @@ namespace CPE200Lab1
     {
         public string Calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
         {
+            double result;
             switch (operate)
             {
                 case "+":
@@ -22,7 +23,7 @@ namespace CPE200Lab1
                     // Not allow devide be zero
                     if (secondOperand != "0")
                     {
-                        double result;
+                       
                         string[] parts;
                         int remainLength;
 
@@ -41,21 +42,39 @@ namespace CPE200Lab1
                     }
                     break;
                 case "1/X":
-                    double x = (Convert.ToDouble(firstOperand));
-                    return (1 / x).ToString();
-                      
+                    result = Convert.ToDouble(firstOperand);
+                    result = 1.0 / result;
+                    
+                    if (result.ToString() is "E" || result.ToString().Length > 8)
+                    {
+                        return result.ToString().Substring(0,8);
+                    }
+                     else return result.ToString();
 
-
+                   
+                   
+                  
+                                   
                     break;
                 case "SQRT":
-                    
+                    result = Convert.ToDouble(firstOperand);
+                    result = Math.Sqrt(result);
+                    Console.WriteLine(result);
+                    if (result.ToString() is "E" || result.ToString().Length > 8)
+                    {
+                        return result.ToString().Substring(0, 8);
+                    }
+                    else return result.ToString();
+
+
+                    return result.ToString();
                     break;
                     
                     //else return "E";
                     break;
                     
                 case "%":
-                   /* result = (Convert.ToDouble(secondOperand) / 100) * Convert.ToDouble(firstOperand);
+               /*     result = (Convert.ToDouble(secondOperand) / 100) * Convert.ToDouble(firstOperand);
                     return result.ToString();*/
                     break;
                    

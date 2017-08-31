@@ -299,6 +299,7 @@
             this.btn1Dividex.TabIndex = 21;
             this.btn1Dividex.Text = "1/X";
             this.btn1Dividex.UseVisualStyleBackColor = true;
+            this.btn1Dividex.Click += new System.EventHandler(this.btnOperator_Click);
             // 
             // btnSqrt
             // 
@@ -309,6 +310,7 @@
             this.btnSqrt.TabIndex = 22;
             this.btnSqrt.Text = "SQRT";
             this.btnSqrt.UseVisualStyleBackColor = true;
+            this.btnSqrt.Click += new System.EventHandler(this.btnOperator_Click);
             // 
             // btnMC
             // 
@@ -319,6 +321,7 @@
             this.btnMC.TabIndex = 23;
             this.btnMC.Text = "MC";
             this.btnMC.UseVisualStyleBackColor = true;
+            this.btnMC.Click += new System.EventHandler(this.btnMemory_Click);
             // 
             // button2
             // 
