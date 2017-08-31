@@ -51,10 +51,10 @@
             this.lblDisplay = new System.Windows.Forms.Label();
             this.btn1Dividex = new System.Windows.Forms.Button();
             this.btnSqrt = new System.Windows.Forms.Button();
-            this.btnMC = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.btnMS = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn7
@@ -312,7 +312,7 @@
             this.btnSqrt.UseVisualStyleBackColor = true;
             this.btnSqrt.Click += new System.EventHandler(this.btnOperator_Click);
             // 
-            // btnMC
+            // button1
             // 
             this.btnMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnMC.Location = new System.Drawing.Point(388, 218);
@@ -321,7 +321,6 @@
             this.btnMC.TabIndex = 23;
             this.btnMC.Text = "MC";
             this.btnMC.UseVisualStyleBackColor = true;
-            this.btnMC.Click += new System.EventHandler(this.btnMemory_Click);
             // 
             // button2
             // 
@@ -343,25 +342,25 @@
             this.button3.Text = "M+";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // btnMS
+            // button4
             // 
-            this.btnMS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btnMS.Location = new System.Drawing.Point(388, 428);
-            this.btnMS.Name = "btnMS";
-            this.btnMS.Size = new System.Drawing.Size(82, 64);
-            this.btnMS.TabIndex = 26;
-            this.btnMS.Text = "MS";
-            this.btnMS.UseVisualStyleBackColor = true;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.button4.Location = new System.Drawing.Point(388, 428);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(82, 64);
+            this.button4.TabIndex = 26;
+            this.button4.Text = "MS";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 512);
-            this.Controls.Add(this.btnMS);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnMC);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSqrt);
             this.Controls.Add(this.btn1Dividex);
             this.Controls.Add(this.lblDisplay);
@@ -417,10 +416,10 @@
         private System.Windows.Forms.Label lblDisplay;
         private System.Windows.Forms.Button btn1Dividex;
         private System.Windows.Forms.Button btnSqrt;
-        private System.Windows.Forms.Button btnMC;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnMS;
+        private System.Windows.Forms.Button button4;
     }
 }
 
