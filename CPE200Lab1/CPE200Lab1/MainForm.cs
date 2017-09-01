@@ -29,7 +29,7 @@ namespace CPE200Lab1
             isAfterOperater = false;
             isAfterEqual = false;
         }
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -51,21 +51,21 @@ namespace CPE200Lab1
             {
                 lblDisplay.Text = "0";
             }
-            if(lblDisplay.Text.Length is 8)
+            if (lblDisplay.Text.Length is 8)
             {
                 return;
             }
             isAllowBack = true;
             string digit = ((Button)sender).Text;
-            if(lblDisplay.Text is "0")
+            if (lblDisplay.Text is "0")
             {
                 lblDisplay.Text = "";
             }
             lblDisplay.Text += digit;
-            
+
             isAfterOperater = false;
         }
-        
+
         private void btnOperator_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -84,13 +84,13 @@ namespace CPE200Lab1
                 case "-":
                 case "X":
                 case "÷":
-                
-                    if(firstOperand != null)
+
+                    if (firstOperand != null)
                     {
                         Console.WriteLine(firstOperand);
                         secondOperand = lblDisplay.Text;
                         Console.WriteLine(secondOperand);
-                        result = engine.Calculate(lastOperate,firstOperand, secondOperand);
+                        result = engine.Calculate(lastOperate, firstOperand, secondOperand);
                         if (result is "E" || result.Length > 8)
                         {
                             lblDisplay.Text = "Error";
@@ -133,10 +133,10 @@ namespace CPE200Lab1
                     break;
 
                     // your code here
-                   
+
             }
             isAllowBack = false;
-            
+
         }
         /*secondOperand = lblDisplay.Text;
                    result = engine.Calculate(operate, firstOperand, secondOperand);
@@ -196,7 +196,7 @@ namespace CPE200Lab1
             {
                 return;
             }
-            if(lblDisplay.Text[0] is '-')
+            if (lblDisplay.Text[0] is '-')
             {
                 lblDisplay.Text = lblDisplay.Text.Substring(1, lblDisplay.Text.Length - 1);
             } else
@@ -212,37 +212,72 @@ namespace CPE200Lab1
 
         private void btnMemory_Click(object sender, EventArgs e)
         {
+          /*  string function = ((Button)sender).Text;
+            Console.WriteLine(function);
+            switch (function)
+            {
+                case "MC":
+                    memory = null;
+                    break;
+                case "MR":
+                    lblDisplay.Text = memory;
+                    break;
+                case "M+":
+                    if (memory == null)
+                        memory = lblDisplay.Text;
+                    else
+                    {
+                        memory = engine.Calculate("+", memory, lblDisplay.Text);
+                    }
+                    break;
+                case "M-":
+                    if (memory == null)
+                        memory = lblDisplay.Text;
+                    else
+                    {
+                        memory = engine.Calculate("-", memory, lblDisplay.Text);
+                    }
+                    break;
+                case "MS":
+                    memory = lblDisplay.Text;
+                    break;
+            }
+
+    */
 
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            if (lblDisplay.Text is "Error")
+            private void btnBack_Click(object sender, EventArgs e)
             {
-                return;
-            }
-            if (isAfterEqual)
-            {
-                return;
-            }
-            if (!isAllowBack)
-            {
-                return;
-            }
-            if(lblDisplay.Text != "0")
-            {
-                string current = lblDisplay.Text;
-                char rightMost = current[current.Length - 1];
-                if(rightMost is '.')
+                if (lblDisplay.Text is "Error")
                 {
-                    hasDot = false;
+                    return;
                 }
-                lblDisplay.Text = current.Substring(0, current.Length - 1);
-                if(lblDisplay.Text is "" || lblDisplay.Text is "-")
+                if (isAfterEqual)
                 {
-                    lblDisplay.Text = "0";
+                    return;
+                }
+                if (!isAllowBack)
+                {
+                    return;
+                }
+                if (lblDisplay.Text != "0")
+                {
+                    string current = lblDisplay.Text;
+                    char rightMost = current[current.Length - 1];
+                    if (rightMost is '.')
+                    {
+                        hasDot = false;
+                    }
+                    lblDisplay.Text = current.Substring(0, current.Length - 1);
+                    if (lblDisplay.Text is "" || lblDisplay.Text is "-")
+                    {
+                        lblDisplay.Text = "0";
+                    }
                 }
             }
         }
     }
-}
+
+
+
