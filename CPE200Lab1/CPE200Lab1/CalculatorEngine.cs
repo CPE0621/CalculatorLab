@@ -22,7 +22,7 @@ namespace CPE200Lab1
                 case "X":
                 case "÷":
                     return true;
-            }
+            }   
             return false;
         }
         public string Process(string str)
