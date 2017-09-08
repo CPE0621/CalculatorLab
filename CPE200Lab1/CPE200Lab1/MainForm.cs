@@ -169,7 +169,8 @@ namespace CPE200Lab1
             if (!hasDot)
             {
                 lblDisplay.Text += ".";
-                hasDot = true;
+                //hasDot = true;
+
             }
         }
 
