@@ -3,35 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections;
+
 namespace CPE200Lab1
 {
-    class RPNCalculatorEngine:CalculatorEngine
+    public class RPNCalculatorEngine : CalculatorEngine
     {
-        public string Process(string str)
+        public new string Process(string str)
         {
-            string result;
-            string operate, firstoprand, secondoprand;
-            Stack x = new Stack();
-
+            Stack<string> rpnStack = new Stack<string>();
             List<string> parts = str.Split(' ').ToList<string>();
-            for(int i = 0; i < parts.Count; i++)
-            {
-                if (parts[i] == "+" || parts[i] == "-" || parts[i] == "X" || parts[i] == "÷")
-                {
+            string result;
+            string firstOperand, secondOperand;
 
-                    operate = parts[i];
-                    secondoprand = x.Pop().ToString();
-                    firstoprand = x.Pop().ToString();
-                    result = calculate(operate,firstoprand,secondoprand);
-                    x.Push(result);
-                }
-                else
+            foreach (string token in parts)
+            {
+                if (isNumber(token))
                 {
-                    x.Push(parts[i]);
+                    rpnStack.Push(token);
+                }
+                else if (isOperator(token))
+                {
+                    //FIXME, what if there is only one left in stack?
+                    secondOperand = rpnStack.Pop();
+                    firstOperand = rpnStack.Pop();
+                    result = calculate(token, firstOperand, secondOperand, 4);
+                    if (result is "E")
+                    {
+                        return result;
+                    }
+                    rpnStack.Push(result);
                 }
             }
-            return x.Pop().ToString();
+            //FIXME, what if there is more than one, or zero, items in the stack?
+            result = rpnStack.Pop();
+            return result;
         }
     }
 }
